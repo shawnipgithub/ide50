@@ -1,9 +1,0 @@
-#!/bin/bash
-
-username=${C9_USER:0:16}
-
-if [ "$1" == "-n" ]; then
-    echo -n $username
-else
-    echo $username
-fi
