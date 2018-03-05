@@ -5,12 +5,10 @@
 
 int main(void)
 {
-  int i=0;
   int count=0;
   int division=get_int();
   int divisionCount=division;
 
- // count the number of digits of this integer
   while (divisionCount>=1)
   {
       // count the number of digits of the integer
@@ -18,57 +16,15 @@ int main(void)
       divisionCount/=10;
   }
 
-  //set up an intger array to store each digit of the integer
-  
-  int buffer[count];
-
-  while(division>=1)
-  {
-     buffer[count-i-1]=division%10;
-     division/=10;
-     i++;
-  }
-
-  //set up a char array to put each element of the integer array into the char array by using a switch case statement to call the
-  //corresponding ASCI value of the digit
-  
-  char chararray[count];
+  // the largest number of digits of an integer is 20 for a long long integer of size 64bits
+  char chararray[20];
+  chararray[count]='\0';
   for (int j=0;j<count;j++)
   {
-      switch( buffer[j] )
-        {
-        case 0:
-          chararray[j]=48;
-          break;
-        case 1:
-          chararray[j]=49;
-          break;
-        case 2:
-          chararray[j]=50;
-          break;
-        case 3:
-          chararray[j]=51;
-          break;
-        case 4:
-          chararray[j]=52;
-          break;
-        case 5:
-          chararray[j]=53;
-          break;
-        case 6:
-          chararray[j]=54;
-          break;
-        case 7:
-          chararray[j]=55;
-          break;
-        case 8:
-          chararray[j]=56;
-          break;
-        case 9:
-          chararray[j]=57;
-          break;
-        }
+      //get each digit of the integer backward
+      //using casting to convert it into a character
+      //then put it in the char array
+      chararray[count-j-1]=(char)(division%10);
+      division/=10;
   }
-
-
 }
